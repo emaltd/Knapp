@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Knapp</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+
+    </head>
+    <body>
+        <button id="open_button" onclick="openmodal();">Klikk Meg</button>
+        <div id="modal">
+            <svg width="40px" height="40px">
+                <circle cx="20" cy="20" r="19"  fill="none" stroke="#2e2" stroke-width="2" id="circle"/>
+                <polyline points="9,19 16,27 30,13" fill="none" stroke="#2e2" stroke-width="4" id="check"/>
+            </svg>
+            <h1>Wow, Du klarte det...</h1>
+            <p>Du kastet nettop bort 5 sekunder av ditt liv.</p>
+            <button class="close_button" onclick="closemodal();">Dismiss</button>
+        </div>
+        <script type="text/javascript">
+        let openBtn = document.getElementById('open_button');
+        let modal = document.getElementById('modal');
+        let check = document.getElementById('check');
+        let circle = document.getElementById('circle');
+        function openmodal(){
+            openBtn.style.transform = 'scale(0)';
+            modal.style.transform = 'scale(1)';
+            circle.style.strokeDasharray = "40 0";
+            circle.style.strokeDashoffset = "0";
+            check.style.strokeDasharray = "40 0";
+            check.style.strokeDashoffset = "0";
+            document.body.style.background = 'rgba(164, 255, 253, 0.3)';
+        }
+        function closemodal(){
+            openBtn.style.transform = 'scale(1)';
+            modal.style.transform = 'scale(0)';
+            circle.style.strokeDashoffset = "30";
+            circle.style.strokeDasharray = "10 35";
+            check.style.strokeDashoffset = "20";
+            check.style.strokeDasharray = "10 45";
+            document.body.style.background = 'rgba(164, 255, 253, 1)';
+        }
+        </script>
+    </body>
+</html>
